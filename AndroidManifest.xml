@@ -20,6 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+		<activity
+		    android:name="de.quist.app.errorreporter.ExceptionReportActivity"
+		    android:process=":exceptionReporter" />
+		<service
+			android:name="de.quist.app.errorreporter.ExceptionReportService"
+			android:process=":exceptionReporter" />
+		<meta-data
+		    android:name="de.quist.app.errorreporter.targetUrl"
+		    android:value="http://foo.bar/error.php" />
     </application>
 
 </manifest>

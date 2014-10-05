@@ -1,3 +1,6 @@
 [submodule "OpenWnnLib"]
 	path = OpenWnnLib
 	url = https://github.com/tmatz/OpenWnnLib.git
+[submodule "Android-Error-Reporter"]
+	path = Android-Error-Reporter
+	url = https://github.com/tmatz/Android-Error-Reporter.git
