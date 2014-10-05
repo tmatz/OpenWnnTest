@@ -1,0 +1,3 @@
+[submodule "OpenWnnLib"]
+	path = OpenWnnLib
+	url = https://github.com/tmatz/OpenWnnLib.git
