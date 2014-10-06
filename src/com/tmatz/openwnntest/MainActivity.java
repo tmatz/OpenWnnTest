@@ -16,7 +16,6 @@ import jp.co.omronsoft.openwnn.StrSegment;
 import jp.co.omronsoft.openwnn.JAJP.Romkan;
 import jp.co.omronsoft.openwnn.LetterConverter;
 import jp.co.omronsoft.openwnn.CandidateFilter;
-import de.quist.app.errorreporter.ExceptionReporter;
 
 public class MainActivity extends Activity
 {
@@ -30,18 +29,11 @@ public class MainActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState)
 	{
-        //ExceptionHandler.register(getApplicationContext());
-    	ExceptionReporter.register(this);
+        ExceptionHandler.register(getApplicationContext());
     	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-               
-        {
-        	Intent i = new Intent(getApplicationContext(), ErrorActivity.class);
-        	startActivity(i);
-        }
-        
 		mTextView = (TextView)findViewById(R.id.text_view);
 
 		mConvEngine = new OpenWnnEngineJAJP(this, getFilesDir().getPath() + "/writableJAJP.dic");
@@ -129,6 +121,5 @@ public class MainActivity extends Activity
 	private void show(String str)
 	{
 		mTextView.append("\n" + str);
-		//Toast.makeText(this, str, Toast.LENGTH_SHORT).show();		
 	}
 }

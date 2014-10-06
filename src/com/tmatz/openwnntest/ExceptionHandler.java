@@ -35,9 +35,8 @@ public class ExceptionHandler implements UncaughtExceptionHandler {
 
 	@Override
 	public void uncaughtException(Thread thread, Throwable ex) {
-		Toast.makeText(mContext, "caught exception", Toast.LENGTH_SHORT).show();
 	    Intent i = new Intent(mContext, ErrorActivity.class);
-	    //i.putExtra("error", ex);
+	    i.putExtra("ex_message", ex.getMessage());
 		PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, 0);
 	    AlarmManager mgr = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
         mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 2000, pi);
