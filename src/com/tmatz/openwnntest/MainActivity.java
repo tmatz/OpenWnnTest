@@ -1,6 +1,11 @@
 package com.tmatz.openwnntest;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+
 import android.app.*;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.*;
 import android.view.*;
 import android.widget.*;
@@ -25,11 +30,18 @@ public class MainActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState)
 	{
+        //ExceptionHandler.register(getApplicationContext());
     	ExceptionReporter.register(this);
     	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		
+
+               
+        {
+        	Intent i = new Intent(getApplicationContext(), ErrorActivity.class);
+        	startActivity(i);
+        }
+        
 		mTextView = (TextView)findViewById(R.id.text_view);
 
 		mConvEngine = new OpenWnnEngineJAJP(this, getFilesDir().getPath() + "/writableJAJP.dic");
